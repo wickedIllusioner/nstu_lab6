@@ -86,24 +86,27 @@ vector<int> func2(int n, int m) {
 
 
 
-
-
 int main() {
     cout << "Доступные функции: \n" << "1. Сумма каждой строки и столбца квадратичной матрицы" << endl;
     cout << "2. Массив последовательности с числами без цифр 5 и 7" << endl;
-    cout << "3. Клеточный автомат Джона Конвея (сорняк)" << endl;
+    cout << "3. Клеточный автомат Джона Конвея" << endl;
     cout << "Введите номер функции: ";
 
     int choice {}, n {}, m {};
     cin >> choice;
     switch (choice) {
         case 1:
+            {
+            cout << "Введите размерность массива (обязательно четное!): ";
             cin >> n;
             func1(n);
             break;
+            }
 
         case 2:
-            cin >> n >> m;
+            {
+            cout << "Введите значения M и N для инициализации массива MxN: ";
+            cin >> m >> n;
             auto result = func2(n, m);
             cout << "Найденная последовательность: " ;
             for (int elem : result) {
@@ -111,9 +114,16 @@ int main() {
             }
             cout << endl;
             break;
+            }
 
-        // default:
-        //     cout << "Неизвестный номер" << endl;
+        case 3:
+            {
+            system("gnome-terminal -- bash -c 'conway; exec bash'");
+            break;
+            }
+
+        default:
+            cout << "Неизвестный номер" << endl;
     }
 
 
